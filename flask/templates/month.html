@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nepali Calendar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>{{ month }} {{ year }}</h1>
+
+<table>
+    <tr>
+        {% for day in weekdays %}
+            <th class="{% if day == 'Sat' %}sat{% endif %}">{{ day }}</th>
+        {% endfor %}
+    </tr>
+
+    {% for week in calendar %}
+    <tr>
+        {% for day in week %}
+            <td class="{% if day == current_day %}today{% endif %}">
+                {{ day }}
+            </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+<div class="links">
+    {% for i in range(1,13) %}
+        <a href="/month/{{i}}">Month {{i}}</a>
+    {% endfor %}
+</div>
+
+</body>
+</html>

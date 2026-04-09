@@ -1,0 +1,47 @@
+import tkinter as tk
+from winotify import Notification,audio
+import time
+a=time.strftime('%H:%M:%S')
+print(a.center(55))
+b=int(input("Enter hours "))
+c=int(input("Enter mins "))
+d=int(input("Enter seconds "))
+time.sleep(2)
+import os
+os.system('cls')
+time.sleep(1)
+n=2
+while (n!=0):
+    for i in range(1234):
+        w=str(b)
+        q=str(c)
+        e=str(d)
+        print (f"{w}:{q}:{e}")
+        f=time.strftime('%H:%M:%S')
+        row,col=1,50
+        print (f.center(30))
+        h=int(time.strftime('%H'))
+        m=int(time.strftime('%M'))
+        s=int(time.strftime('%S'))
+        if b<=h and c<=m and d<=s:
+            print ("Its time to wake up".center(55))
+            n=0
+            break
+bb=Notification(app_id="Alarm",title="Alarm",msg="Its time to wake up",duration="short")
+bb.set_audio(audio.LoopingAlarm9,loop=False)
+bb.show()
+time.sleep(2)
+os.system('cls')
+time.sleep(1.5)
+import time
+g=time.strftime('%H:%M:%S')
+print (g.center(55))
+h=int(time.strftime('%H'))
+if int(h)==12 or int(h)<12:
+    print ("Good moring sir\nHave a good day")
+elif int(h)>12 and int(h)<16:
+    print ("Good aftermoon sir\nHhave a good day")
+elif int(h)>17 and int(h)<20:
+    print ("Good evening sir\nHave a good day")
+elif int(h)>21 and int(h)<24:
+    print ("Good night sir \nHave a good day")
